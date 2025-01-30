@@ -2,57 +2,73 @@
 <html>
 <head>
     <title>How to Find the Inverse of a Matrix (Mod 26)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h2, h3 {
+            color: #2c3e50;
+        }
+        p, ul {
+            margin-bottom: 10px;
+        }
+        .matrix {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            font-family: monospace;
+        }
+    </style>
 </head>
 <body>
-    <h2><strong>How to Find the Inverse of a Matrix (Mod 26)</strong></h2>
+    <h2>How to Find the Inverse of a Matrix (Mod 26)</h2>
     <p>We'll go through the steps using our example matrix:</p>
-    <p>
-        K = 
-        <br>
-        [ 3 &nbsp; 2 ] <br>
+    <div class="matrix">
+        [ 3 &nbsp; 2 ]<br>
         [ 5 &nbsp; 7 ]
-    </p>
+    </div>
     <p>We want to find <strong>K<sup>-1</sup> mod 26</strong>.</p>
     <hr>
-    <h3><strong>Step 1: Find the Determinant</strong></h3>
+    <h3>Step 1: Find the Determinant</h3>
     <p>The determinant of a <strong>2 × 2 matrix</strong>:</p>
     <p>det(K) = (a × d - b × c)</p>
     <p>For our matrix:</p>
     <p>det(K) = (3 × 7) - (2 × 5) = 21 - 10 = 11</p>
     <hr>
-    <h3><strong>Step 2: Find the Modular Inverse of the Determinant (mod 26)</strong></h3>
+    <h3>Step 2: Find the Modular Inverse of the Determinant (mod 26)</h3>
     <p>We need the <strong>multiplicative inverse</strong> of <strong>11 mod 26</strong>. This means finding a number <strong>x</strong> such that:</p>
     <p>11 × x ≡ 1 (mod 26)</p>
     <p>Using the <strong>Extended Euclidean Algorithm</strong>, we find:</p>
     <p>11<sup>-1</sup> ≡ 19 (mod 26)</p>
     <p>(You can check: 11 × 19 = 209, and 209 mod 26 = 1, so <strong>19 is correct</strong>.)</p>
     <hr>
-    <h3><strong>Step 3: Swap and Negate Terms to Form the Adjugate Matrix</strong></h3>
+    <h3>Step 3: Swap and Negate Terms to Form the Adjugate Matrix</h3>
     <p>For a <strong>2 × 2 matrix</strong>, we swap <strong>a</strong> and <strong>d</strong>, and negate <strong>b</strong> and <strong>c</strong>:</p>
-    <p>Adjugate of K =</p>
-    <p>
-        [ 7  -2 ] <br>
-        [ -5  3 ]
-    </p>
+    <div class="matrix">
+        [ 7 &nbsp; -2 ]<br>
+        [ -5 &nbsp; 3 ]
+    </div>
     <p>Since we're in <strong>mod 26</strong>, convert negatives:</p>
     <ul>
         <li>−2 mod 26 = <strong>24</strong></li>
         <li>−5 mod 26 = <strong>21</strong></li>
     </ul>
     <p>So the adjugate matrix is:</p>
-    <p>
-        [ 7 &nbsp; 24 ] <br>
+    <div class="matrix">
+        [ 7 &nbsp; 24 ]<br>
         [ 21 &nbsp; 3 ]
-    </p>
+    </div>
     <hr>
-    <h3><strong>Step 4: Multiply by the Modular Inverse of the Determinant</strong></h3>
+    <h3>Step 4: Multiply by the Modular Inverse of the Determinant</h3>
     <p>Now, multiply each term in the adjugate matrix by <strong>19 mod 26</strong>:</p>
-    <p>
-        K<sup>-1</sup> = (19) ×
-        <br>
-        [ 7 &nbsp; 24 ] <br>
+    <div class="matrix">
+        K<sup>-1</sup> = (19) ×<br>
+        [ 7 &nbsp; 24 ]<br>
         [ 21 &nbsp; 3 ] (mod 26)
-    </p>
+    </div>
     <p>Calculate each element mod 26:</p>
     <ul>
         <li>19 × 7 = 133 → 133 mod 26 = <strong>3</strong></li>
@@ -61,27 +77,21 @@
         <li>19 × 3 = 57 → 57 mod 26 = <strong>5</strong></li>
     </ul>
     <p>So, the <strong>inverse matrix mod 26</strong> is:</p>
-    <p>
-        K<sup>-1</sup> =
-        <br>
-        [ 3 &nbsp; 14 ] <br>
+    <div class="matrix">
+        [ 3 &nbsp; 14 ]<br>
         [ 9 &nbsp; 5 ]
-    </p>
+    </div>
     <hr>
-    <h3><strong>Final Answer</strong></h3>
+    <h3>Final Answer</h3>
     <p>The inverse of</p>
-    <p>
-        K =
-        <br>
-        [ 3 &nbsp; 2 ] <br>
+    <div class="matrix">
+        [ 3 &nbsp; 2 ]<br>
         [ 5 &nbsp; 7 ]
-    </p>
+    </div>
     <p><strong>mod 26</strong> is:</p>
-    <p>
-        K<sup>-1</sup> =
-        <br>
-        [ 3 &nbsp; 14 ] <br>
+    <div class="matrix">
+        [ 3 &nbsp; 14 ]<br>
         [ 9 &nbsp; 5 ] (mod 26)
-    </p>
+    </div>
 </body>
 </html>

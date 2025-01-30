@@ -11,15 +11,16 @@
         h2, h3 {
             color: #2c3e50;
         }
-        p, ul {
+        p {
             margin-bottom: 10px;
         }
         .matrix {
             display: inline-block;
             border: 1px solid black;
-            padding: 5px;
+            padding: 10px;
             text-align: center;
             font-family: monospace;
+            background-color: #f8f9fa;
         }
     </style>
 </head>
@@ -33,48 +34,48 @@
     <p>We want to find <strong>K<sup>-1</sup> mod 26</strong>.</p>
     <hr>
     <h3>Step 1: Find the Determinant</h3>
-    <p>The determinant of a <strong>2 × 2 matrix</strong>:</p>
-    <p>det(K) = (a × d - b × c)</p>
+    <p>The determinant of a <strong>2 × 2 matrix</strong> is calculated as:</p>
+    <p><strong>det(K) = (a × d - b × c)</strong></p>
     <p>For our matrix:</p>
-    <p>det(K) = (3 × 7) - (2 × 5) = 21 - 10 = 11</p>
+    <p><strong>det(K) = (3 × 7) - (2 × 5) = 21 - 10 = 11</strong></p>
     <hr>
     <h3>Step 2: Find the Modular Inverse of the Determinant (mod 26)</h3>
-    <p>We need the <strong>multiplicative inverse</strong> of <strong>11 mod 26</strong>. This means finding a number <strong>x</strong> such that:</p>
-    <p>11 × x ≡ 1 (mod 26)</p>
+    <p>We need the <strong>multiplicative inverse</strong> of <strong>11 mod 26</strong>, meaning we need to find a number <strong>x</strong> such that:</p>
+    <p><strong>11 × x ≡ 1 (mod 26)</strong></p>
     <p>Using the <strong>Extended Euclidean Algorithm</strong>, we find:</p>
-    <p>11<sup>-1</sup> ≡ 19 (mod 26)</p>
-    <p>(You can check: 11 × 19 = 209, and 209 mod 26 = 1, so <strong>19 is correct</strong>.)</p>
+    <p><strong>11<sup>-1</sup> ≡ 19 (mod 26)</strong></p>
+    <p>(Check: 11 × 19 = 209, and 209 mod 26 = 1, so <strong>19 is correct</strong>.)</p>
     <hr>
-    <h3>Step 3: Swap and Negate Terms to Form the Adjugate Matrix</h3>
+    <h3>Step 3: Compute the Adjugate Matrix</h3>
     <p>For a <strong>2 × 2 matrix</strong>, we swap <strong>a</strong> and <strong>d</strong>, and negate <strong>b</strong> and <strong>c</strong>:</p>
     <div class="matrix">
         [ 7 &nbsp; -2 ]<br>
         [ -5 &nbsp; 3 ]
     </div>
-    <p>Since we're in <strong>mod 26</strong>, convert negatives:</p>
+    <p>Since we're working <strong>mod 26</strong>, convert negatives:</p>
     <ul>
-        <li>−2 mod 26 = <strong>24</strong></li>
-        <li>−5 mod 26 = <strong>21</strong></li>
+        <li><strong>−2 mod 26</strong> = 24</li>
+        <li><strong>−5 mod 26</strong> = 21</li>
     </ul>
-    <p>So the adjugate matrix is:</p>
+    <p>Thus, the adjugate matrix is:</p>
     <div class="matrix">
         [ 7 &nbsp; 24 ]<br>
         [ 21 &nbsp; 3 ]
     </div>
     <hr>
     <h3>Step 4: Multiply by the Modular Inverse of the Determinant</h3>
-    <p>Now, multiply each term in the adjugate matrix by <strong>19 mod 26</strong>:</p>
+    <p>Now, multiply each element in the adjugate matrix by <strong>19 mod 26</strong>:</p>
     <div class="matrix">
-        K<sup>-1</sup> = (19) ×<br>
+        K<sup>-1</sup> = (19) ×
         [ 7 &nbsp; 24 ]<br>
         [ 21 &nbsp; 3 ] (mod 26)
     </div>
     <p>Calculate each element mod 26:</p>
     <ul>
-        <li>19 × 7 = 133 → 133 mod 26 = <strong>3</strong></li>
-        <li>19 × 24 = 456 → 456 mod 26 = <strong>14</strong></li>
-        <li>19 × 21 = 399 → 399 mod 26 = <strong>9</strong></li>
-        <li>19 × 3 = 57 → 57 mod 26 = <strong>5</strong></li>
+        <li><strong>19 × 7 = 133 → 133 mod 26 = 3</strong></li>
+        <li><strong>19 × 24 = 456 → 456 mod 26 = 14</strong></li>
+        <li><strong>19 × 21 = 399 → 399 mod 26 = 9</strong></li>
+        <li><strong>19 × 3 = 57 → 57 mod 26 = 5</strong></li>
     </ul>
     <p>So, the <strong>inverse matrix mod 26</strong> is:</p>
     <div class="matrix">

@@ -1,44 +1,44 @@
 ### **How to Find the Inverse of a Matrix (Mod 26)**
 
 We'll go through the steps using our example matrix:
-
+$
 \[
 K =
 \begin{bmatrix} 3 & 2 \\ 5 & 7 \end{bmatrix}
 \]
-
-We want to find **\( K^{-1} \) mod 26**.
+$
+We want to find $**\( K^{-1} \)$ mod 26**.
 
 ---
 
 ### **Step 1: Find the Determinant**
-The determinant of a **\( 2 \times 2 \) matrix**:
-
+The determinant of a $ **\( 2 \times 2 \) matrix** $:
+$
 \[
 \det(K) = (a \times d - b \times c)
 \]
-
+$
 For our matrix:
-
+$
 \[
 \det(K) = (3 \times 7) - (2 \times 5) = 21 - 10 = 11
 \]
-
+$
 ---
 
 ### **Step 2: Find the Modular Inverse of the Determinant (mod 26)**
-We need the **multiplicative inverse** of **11 mod 26**. This means finding a number **\( x \)** such that:
-
+We need the **multiplicative inverse** of **11 mod 26**. This means finding a number$ **\( x \)** $such that:
+$
 \[
 11 \times x \equiv 1 \pmod{26}
 \]
-
+$
 Using the **Extended Euclidean Algorithm**, we find:
-
+$
 \[
 11^{-1} \equiv 19 \pmod{26}
 \]
-
+$
 (You can check: \( 11 \times 19 = 209 \), and \( 209 \mod 26 = 1 \), so **19 is correct**.)
 
 ---

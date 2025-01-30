@@ -1,5 +1,4 @@
 ### **How to Find the Inverse of a Matrix (Mod 26)**
-Finding the inverse of a matrix in **mod 26** arithmetic is similar to finding a normal matrix inverse, but we perform all calculations **mod 26**.
 
 We'll go through the steps using our example matrix:
 
@@ -104,6 +103,3 @@ K^{-1} =
 \begin{bmatrix} 3 & 14 \\ 9 & 5 \end{bmatrix} \mod 26
 \]
 
-Now, you can use this inverse matrix to **decrypt messages** in the **Hill Cipher**!
-
-Would you like an example of finding the inverse of another matrix? 😊
